@@ -17,21 +17,22 @@ El Builder resuelve el problema de la complejidad en la creación al::
 A menudo se implementa con una "interfaz fluida" (method chaining), donde cada paso devuelve el objeto builder, permitiendo llamadas encadenadas como: builder.setMuros(4).setTecho("Tejas").build().
 
 Beneficios principales:
--**Control granular**: Tienes control total sobre el proceso de construcción; no estás obligado a configurar todo en una sola línea.
+- **Control granular**: Tienes control total sobre el proceso de construcción; no estás obligado a configurar todo en una sola línea.
 
--**Principio**: de Responsabilidad Única: Aíslas el complejo código de construcción de la lógica de negocio del producto final.
+- **Principio**: de Responsabilidad Única: Aíslas el complejo código de construcción de la lógica de negocio del producto final.
 
--**Reutilización**: Puedes usar el mismo proceso de construcción para crear diferentes representaciones (ej: una CasaDeMadera y una CasaDeCristal).
+- **Reutilización**: Puedes usar el mismo proceso de construcción para crear diferentes representaciones (ej: una CasaDeMadera y una CasaDeCristal).
 
--**Código más**: limpio: Evita el "constructor telescópico" y hace que el código cliente sea mucho más legible.
+- **Código más**: limpio: Evita el "constructor telescópico" y hace que el código cliente sea mucho más legible.
 
 ## ¿Cuándo usar este patrón?
--**Constructor Telescópico**: Cuando tu clase tiene un constructor con más de 4 o 5 parámetros, y muchos de ellos son opcionales.
+- **Constructor Telescópico**: Cuando tu clase tiene un constructor con más de 4 o 5 parámetros, y muchos de ellos son opcionales.
 
--**Construcción paso a paso**: Cuando necesitas construir un objeto en una secuencia específica o necesitas posponer algunos pasos de la creación.
+- **Construcción paso a paso**: Cuando necesitas construir un objeto en una secuencia específica o necesitas posponer algunos pasos de la creación.
 
--**Objetos Compuestos (Composite)**: Cuando estás construyendo árboles de objetos complejos (como un documento XML o HTML) y quieres separar la lógica de ensamblaje.
+- **Objetos Compuestos (Composite)**: Cuando estás construyendo árboles de objetos complejos (como un documento XML o HTML) y quieres separar la lógica de ensamblaje.
 
--**Diferentes representaciones**: Cuando quieres que el mismo código de creación sea capaz de producir distintos tipos de productos (ej: un menú de restaurante que puede ser "Vegano", "Infantil" o "Estándar" usando el mismo proceso de armado).
+- **Diferentes representaciones**: Cuando quieres que el mismo código de creación sea capaz de producir distintos tipos de productos (ej: un menú de restaurante que puede ser "Vegano", "Infantil" o "Estándar" usando el mismo proceso de armado).
 ## Challenge
 Para poner en práctica el patrón Adapter, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
