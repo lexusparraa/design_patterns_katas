@@ -29,5 +29,6 @@ Beneficios principales:
 
 ## Challenge
 
-Para poner en práctica el patrón Adapter, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+Para poner en práctica el patrón Composite, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
 
