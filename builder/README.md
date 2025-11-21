@@ -34,5 +34,6 @@ Beneficios principales:
 
 - **Diferentes representaciones**: Cuando quieres que el mismo código de creación sea capaz de producir distintos tipos de productos (ej: un menú de restaurante que puede ser "Vegano", "Infantil" o "Estándar" usando el mismo proceso de armado).
 ## Challenge
-Para poner en práctica el patrón Adapter, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+Para poner en práctica el patrón Builder, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
 
