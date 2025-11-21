@@ -5,7 +5,7 @@ Estás programando el núcleo de un sistema operativo. Debes manejar archivos y 
 
 El problema real surge de la jerarquía. Una carpeta contiene cosas que pueden contener otras cosas. Si usas el enfoque tradicional, necesitas código específico para cada nivel de profundidad o comprobaciones de tipo (instanceof) constantes.
 
-## El Patrón: Compposite
+## El Patrón: Composite
 El patrón Composite permite componer objetos en estructuras de árbol y trabajar con esas estructuras como si fueran objetos individuales.
 
 La clave de este patrón es la uniformidad. Define una interfaz común (Componente) tanto para los objetos simples (Hojas/Leaves) como para los contenedores (Compuestos/Composites).
@@ -29,6 +29,7 @@ Beneficios principales:
 ## Challenge
 
 Para poner en práctica el patrón Composite, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
 
 
 
