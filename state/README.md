@@ -30,3 +30,4 @@ Beneficios principales:
 ## Challenge
 
 Para poner en práctica el patrón State, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
