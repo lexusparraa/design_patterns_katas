@@ -26,3 +26,8 @@ Beneficios principales:
 - **Asignación dinámica de responsabilidades**: Cuando necesitas agregar funcionalidades a objetos individuales en tiempo de ejecución sin afectar a otros objetos de la misma clase.
 - **Herencia inviable**: Cuando no puedes extender una clase mediante herencia (por ejemplo, si la clase es final en Java) pero necesitas reutilizar su lógica y modificarla.
 - **Combinaciones de comportamientos**: Cuando la lógica de negocio requiere aplicar varias variantes de un comportamiento en diferentes combinaciones (ej: streams de entrada/salida en Java new BufferedReader(new FileReader(file))).
+
+## Challenge
+
+Para poner en práctica el patrón Decorator, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
