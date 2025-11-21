@@ -10,30 +10,30 @@ El código es una pesadilla porque:
 - Es propenso a errores: Es muy fácil intercambiar dos números enteros (ej: poner la RAM donde va el disco duro) y el compilador no te avisará.
 ## El Patrón: Builder
 
-El patrón Builder separa la construcción de un objeto complejo de su representación final. En lugar de pedirle al cliente que ensamble todas las piezas en una sola línea (el constructor gigante), le das un objeto constructor (el Builder) que permite configurar el producto paso a paso.
+El patrón Builder separa la construcción de un objeto complejo de su representación. Te permite construir objetos complejos paso a paso. El patrón extrae el código de construcción del objeto fuera de su propia clase y lo mueve a objetos separados llamados builders (constructores).
 
-- **El Producto (Computer)**: Es el objeto final. Ahora es inmutable (sus campos son final), lo que significa que una vez creada, la PC no cambia "mágicamente".
-- **El Constructor (ComputerBuilder)**: Es una clase auxiliar. Tiene los mismos campos que la PC, pero son mutables. Acumula la configuración que el cliente desea.
-- **Fluent Interface**: Usamos métodos que devuelven this (como withRGB()), permitiendo encadenar las llamadas como una frase legible.
-
-El Builder resuelve el problema del constructor gigante al:
-
-- Valores por defecto: El Builder ya tiene valores predefinidos (ej: gpu = "Integrated"). Si el cliente no llama a setGPU(), simplemente se usa el valor por defecto.
-- Claridad: Reemplaza parámetros posicionales (true, false) por llamadas con nombre (.withLiquidCooling()).
-- Validación: El método .build() es el lugar perfecto para verificar que la configuración sea válida (ej: "No puedes tener refrigeración líquida sin un gabinete grande") antes de crear el objeto real.
+El Builder resuelve el problema de la complejidad en la creación al:
+- Eliminar la necesidad de un constructor gigante con docenas de parámetros.
+- Permitir la creación de diferentes representaciones del mismo objeto usando el mismo código de construcción.
+- Habilitar la creación paso a paso (puedes pausar la construcción y reanudarla).
 
 Beneficios principales en este escenario:
-- **Código Cliente Legible**: new ComputerBuilder(...).withRGB().build() se lee como lenguaje natural.
-- **Inmutabilidad Garantizada**: El objeto Computer no tiene "setters". Una vez que haces build(), esa configuración es segura y definitiva.
-- **Flexibilidad**: Puedes crear una PC de oficina básica o una PC Gamer monstruosa usando la misma clase, sin tener docenas de constructores sobrecargados.
+- **Control granular**: Tienes control total sobre el proceso de construcción; no estás obligado a configurar todo en una sola línea.
+- **Principio de Responsabilidad Única**: Aíslas el complejo código de construcción de la lógica de negocio del producto final.
+- **Reutilización**: Puedes usar el mismo proceso de construcción para crear diferentes representaciones (ej: una CasaDeMadera y una CasaDeCristal).
+- **Código más limpio**: Evita el "constructor telescópico" y hace que el código cliente sea mucho más legible.
 
 ## ¿Cuándo usar este patrón?
-- Constructores con más de 4 parámetros: Especialmente si varios son opcionales.
-- Prevención de errores de parámetros: Cuando tienes varios parámetros del mismo tipo seguidos (ej: int ram, int storage, int psuWatts).
-- Creación de objetos inmutables: Cuando quieres que el objeto final sea de solo lectura, pero necesitas una forma cómoda de configurarlo antes de crearlo.
 
+- Constructor Telescópico: Cuando tu clase tiene un constructor con más de 4 o 5 parámetros, y muchos de ellos son opcionales.
+- Construcción paso a paso: Cuando necesitas construir un objeto en una secuencia específica o necesitas posponer algunos pasos de la creación.
+- Objetos Compuestos (Composite): Cuando estás construyendo árboles de objetos complejos (como un documento XML o HTML) y quieres separar la lógica de ensamblaje.
+- Diferentes representaciones: Cuando quieres que el mismo código de creación sea capaz de producir distintos tipos de productos (ej: un menú de restaurante que puede ser "Vegano", "Infantil" o "Estándar" usando el mismo proceso de armado).
+- 
 ## Challenge
+
 Para poner en práctica el patrón Builder, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
+
 
 
 
