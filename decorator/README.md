@@ -1,11 +1,10 @@
 # Kata: Decorator
 
 ## Contexto
-Imagina que estás construyendo un sistema de notificaciones. Inicialmente, tienes una clase Notificador que envía correos electrónicos. Todo va bien hasta que los clientes piden recibir alertas por SMS. Luego por Slack. Y después por Facebook.
+Estás diseñando el sistema de facturación de una pizzería. Al principio, usaste herencia para describir las pizzas. Tenías PizzaBase, y luego creaste subclases para las variantes.
 
-Creas subclases para cada uno: NotificadorSMS, NotificadorSlack. Pero el problema estalla cuando un cliente dice: "Quiero recibir la alerta por Email Y por SMS, pero no por Slack".
+El problema explotó cuando notaste que los clientes piden combinaciones arbitrarias. Si usas herencia, necesitas una clase para cada combinación posible. PizzaConQueso, PizzaConQuesoYJamón, PizzaConQuesoJamónYPiña... Esto es insostenible.
 
-Si intentas resolver esto con herencia, terminas con una explosión de combinaciones: NotificadorEmailYSMS, NotificadorEmailYSlack, NotificadorSMSYFacebook. El número de subclases crece exponencialmente y el código se vuelve inmanejable. La herencia es estática; no puedes cambiar el comportamiento de un objeto existente en tiempo de ejecución.
 ## El Patrón: Decorator
 
 El patrón Decorator (o Wrapper) permite añadir funcionalidades a objetos de forma dinámica colocando estos objetos dentro de objetos encapsuladores especiales que contienen estas funcionalidades.
@@ -36,3 +35,4 @@ Para poner en práctica el patrón Decorator, consulta el [README del challenge]
 
 - [Refactoring Guru - Adapter Pattern](https://refactoring.guru/design-patterns/adapter)
 - [Source Making - Adapter Pattern](https://sourcemaking.com/design_patterns/adapter)
+
