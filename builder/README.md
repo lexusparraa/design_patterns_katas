@@ -1,13 +1,10 @@
 # Kata: Builder
 
 ## Contexto
-Estás diseñando la clase Computer para una tienda de hardware. Una computadora es un objeto complejo: tiene CPU, RAM, Disco Duro, pero también puede tener (o no) Tarjeta de Video dedicada, Refrigeración Líquida, Luces RGB, diferentes Sistemas Operativos, Bluetooth, WiFi, etc.
+En tu código te encontraste con un método createSelectQuery que requiría 6 parámetros diferentes. Para hacer una consulta sencilla, el código te obligaba a escribir una línea ilegible llena de nulos: createSelectQuery("tabla", null, null, null, 0, null).
 
-Trataste de manejar esto con un solo constructor. El resultado fue el "Anti-patrón del Constructor Telescópico": new Computer("Intel", null, 16, 512, "Windows", false, true, false, null...)
+Este problema se conoce como el Anti-patrón del Constructor Telescópico. Ocurre cuando un objeto (o un resultado complejo como una Query) requiere muchas opciones de configuración. Al principio, tienes un constructor con 2 parámetros. Luego añades una opción y creas un constructor con 3. Luego con 4... Terminando con una estructura rígida donde el orden de los parámetros es vital y los errores son muy fáciles de cometer y el compilador no te avisará.
 
-El código es una pesadilla porque:
-- Es rígido: Si quieres una PC sin tarjeta de video, te ves obligado a pasar un null explícito.
-- Es propenso a errores: Es muy fácil intercambiar dos números enteros (ej: poner la RAM donde va el disco duro) y el compilador no te avisará.
 ## El Patrón: Builder
 
 El patrón Builder separa la construcción de un objeto complejo de su representación. Te permite construir objetos complejos paso a paso. El patrón extrae el código de construcción del objeto fuera de su propia clase y lo mueve a objetos separados llamados builders (constructores).
@@ -29,6 +26,7 @@ Beneficios principales en este escenario:
 - Construcción paso a paso: Cuando necesitas construir un objeto en una secuencia específica o necesitas posponer algunos pasos de la creación.
 - Objetos Compuestos (Composite): Cuando estás construyendo árboles de objetos complejos (como un documento XML o HTML) y quieres separar la lógica de ensamblaje.
 - Diferentes representaciones: Cuando quieres que el mismo código de creación sea capaz de producir distintos tipos de productos (ej: un menú de restaurante que puede ser "Vegano", "Infantil" o "Estándar" usando el mismo proceso de armado).
+- 
 ## Challenge
 
 Para poner en práctica el patrón Builder, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
@@ -37,3 +35,4 @@ Para poner en práctica el patrón Builder, consulta el [README del challenge](.
 
 - [Refactoring Guru - Adapter Pattern](https://refactoring.guru/design-patterns/adapter)
 - [Source Making - Adapter Pattern](https://sourcemaking.com/design_patterns/adapter)
+
