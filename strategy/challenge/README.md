@@ -45,8 +45,11 @@ public class Main {
 ```
 ## Tips
 
-💡 **Identifica lo que cambia**: La acción es siempre "pagar", pero el cómo se realiza el pago cambia según el método.
+- 💡 **Identifica lo que cambia**: La acción es siempre "pagar", pero el cómo se realiza el pago cambia según el método.
+- 💡 **Define un contrato**: Crea una interfaz (ej: `PaymentStrategy`) con un método `pay(double amount)`.
+- 💡 **Inversión de control**: En lugar de que `CheckoutService` decida qué lógica ejecutar basándose en un String, haz que reciba el objeto con la lógica de pago ya lista. El servicio no debe preocuparse por cuál es el método, solo debe ejecutarlo.
 
-💡 **Define un contrato**: Crea una interfaz (ej: PaymentStrategy) con un método pay(double amount).
+## Recursos Adicionales
 
-💡 **Inversión de control**: En lugar de que CheckoutService decida qué lógica ejecutar basándose en un String, haz que reciba el objeto con la lógica de pago ya lista. El servicio no debe preocuparse por cuál es el método, solo debe ejecutarlo.
+- [Refactoring Guru - Observer Pattern](https://refactoring.guru/design-patterns/observer)
+- [Source Making - Observer Pattern](https://sourcemaking.com/design_patterns/observer)
