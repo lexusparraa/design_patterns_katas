@@ -11,6 +11,8 @@ Tu solución debe permitir tratar a archivos y carpetas de manera uniforme, perm
 
 **Archivo: `challenge/File.java`**
 ```java
+package composite.challenge;
+
 public class File {
     private String name;
     private int sizeKB;
@@ -27,6 +29,8 @@ public class File {
 ```
 **Archivo: `challenge/Directory.java`**
 ```java
+package composite.challenge;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +73,8 @@ public class Directory {
 
 **Archivo: `challenge/Main.java`**
 ```java
+package composite.challenge;
+
 public class Main {
     public static void main(String[] args) {
         Directory root = new Directory("Root");
@@ -97,3 +103,4 @@ public class Main {
 
 - [Refactoring Guru - Adapter Pattern](https://refactoring.guru/design-patterns/adapter)
 - [Source Making - Adapter Pattern](https://sourcemaking.com/design_patterns/adapter)
+
