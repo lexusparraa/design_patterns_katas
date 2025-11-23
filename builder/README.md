@@ -29,11 +29,11 @@ Beneficios principales en este escenario:
 - Construcción paso a paso: Cuando necesitas construir un objeto en una secuencia específica o necesitas posponer algunos pasos de la creación.
 - Objetos Compuestos (Composite): Cuando estás construyendo árboles de objetos complejos (como un documento XML o HTML) y quieres separar la lógica de ensamblaje.
 - Diferentes representaciones: Cuando quieres que el mismo código de creación sea capaz de producir distintos tipos de productos (ej: un menú de restaurante que puede ser "Vegano", "Infantil" o "Estándar" usando el mismo proceso de armado).
-- 
 ## Challenge
 
 Para poner en práctica el patrón Builder, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
 
+## Recursos Adicionales
 
-
-
+- [Refactoring Guru - Adapter Pattern](https://refactoring.guru/design-patterns/adapter)
+- [Source Making - Adapter Pattern](https://sourcemaking.com/design_patterns/adapter)
