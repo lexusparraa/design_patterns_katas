@@ -31,3 +31,8 @@ Beneficios principales:
 
 Para poner en práctica el patrón Decorator, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
 
+
+## Recursos Adicionales
+
+- [Refactoring Guru - Adapter Pattern](https://refactoring.guru/design-patterns/adapter)
+- [Source Making - Adapter Pattern](https://sourcemaking.com/design_patterns/adapter)
