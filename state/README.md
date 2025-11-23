@@ -1,24 +1,24 @@
 # Kata : State
 
 ## Contexto
-Imagina que estás programando el comportamiento de un reproductor de música o el flujo de aprobación de un documento (Borrador -> Moderación -> Publicado).
+Estás creando un gestor de contenidos (como WordPress). Un documento tiene un ciclo de vida. Usaste una variable `String state = "DRAFT"`. Esto te obligó a llenar tu código de: `if (state == "DRAFT") { ... } else if (state == "PUBLISHED") { ... }`.
 
-Al principio, usas una variable simple y condicionales: if (estado == "REPRODUCIENDO") { ... } else if (estado == "PAUSADO") { ... }. Pero a medida que añades más estados y transiciones (ej: "Bloqueado", "Rebobinando", "Error"), tu clase principal se llena de sentencias switch o if-else monstruosas. Cualquier cambio en la lógica de un estado requiere editar esa clase gigante, arriesgando romper el código de otros estados. Esto se vuelve insostenible y viola el principio de "Abierto/Cerrado".
+Este enfoque es una Máquina de Estados implementada con condicionales. El problema es que la lógica de transición (saber que después de Draft va Moderation) está mezclada con la lógica de negocio (saber que en Published no se puede escribir). Si añades un nuevo estado, el riesgo de introducir bugs en los estados existentes es altísimo. Cualquier cambio en la lógica de un estado requiere editar esa clase gigante, arriesgando romper el código de otros estados. Esto se vuelve insostenible y viola el principio de "Abierto/Cerrado".
 
 ## El Patrón: State
 El patrón State permite que un objeto modifique su comportamiento cuando su estado interno cambia. Parece como si el objeto hubiera cambiado su clase.
 
 La idea central es la Máquina de Estados Finitos. En lugar de guardar el estado en variables y usar condicionales, extraes cada comportamiento dependiente del estado a su propia clase.
 
-El State resuelve el problema de la complejidad lógica al:
-- **Contexto**: Es la clase original (ej: Documento). Mantiene una referencia a uno de los objetos de estado concretos que representa su estado actual.
-- **Interfaz de Estado**: Define los métodos comunes que todos los estados deben tener (ej: publicar(), rechazar()).
-- **Estados Concretos**: Implementan comportamientos específicos. Por ejemplo, el método publicar() en el estado Borrador mueve el documento a Moderación, pero el método publicar() en el estado Publicado no hace nada o lanza un error.
+El patrón State resuelve el problema de la complejidad lógica al:
+- **Descentralizar la lógica**: `PublishedState` es el único lugar donde se define que "no se puede editar un documento publicado". No necesitas verificar esto en el código principal.
+- **Transiciones Responsables**: Cada estado sabe cuál es su sucesor. Draft sabe crear un Moderation, pero no sabe nada sobre `Published`.
+- **Comportamiento Polimórfico**: Cuando el usuario llama a `doc.publish()`, el resultado depende totalmente de qué objeto esté metido en la variable state en ese milisegundo.Publicado no hace nada o lanza un error.
 
-El Contexto simplemente delega el trabajo: estadoActual.publicar(). Para cambiar de estado, simplemente se reemplaza el objeto de estado dentro del Contexto.
+Para cambiar de estado, simplemente se reemplaza el objeto de estado dentro del Contexto.
 
 Beneficios principales:
-- **Elimina condicionales masivos**: Desaparecen los switch y if gigantes.
+- **Elimina condicionales masivos**: Desaparecen los switch e if gigantes.
 - **Principio de Responsabilidad Única**: El código de cada estado vive en su propia clase.
 - **Transiciones explícitas**: Las reglas de transición (pasar de A a B) están claras dentro de las clases de estado, en lugar de dispersas o implícitas en variables booleanas.
 
@@ -31,3 +31,7 @@ Beneficios principales:
 
 Para poner en práctica el patrón State, consulta el [README del challenge](./challenge/) que contiene un ejercicio práctico.
 
+## Recursos Adicionales
+
+- [Refactoring Guru - Observer Pattern](https://refactoring.guru/design-patterns/observer)
+- [Source Making - Observer Pattern](https://sourcemaking.com/design_patterns/observer)
