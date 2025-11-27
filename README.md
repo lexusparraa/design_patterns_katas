@@ -1,11 +1,10 @@
 # Design Patterns Katas
 
-Colección de katas de código enfocadas en patrones de diseño. Cada kata presenta un problema real de código que puede ser resuelto aplicando un patrón de diseño específico.
+Una colección de ejercicios (Katas) para la práctica y el dominio de los Patrones de Diseño clásicos. Cada kata presenta un problema real de código que puede ser resuelto aplicando un patrón de diseño específico.
 
 ## Objetivo
 
-El objetivo de estas katas es practicar la identificación y aplicación de patrones de diseño en situaciones concretas. Cada kata incluye:
-
+El objetivo de estas katas es servir como un entorno de entrenamiento interactivo y práctico para ir más allá de la teoría de los Patrones de Diseño de software. Cada kata incluye:
 - **Contexto**: Un escenario real del mundo del desarrollo
 - **Challenge**: Código con problemas de diseño que necesita refactorización
 - **Solution**: Una implementación que aplica el patrón de diseño apropiado
